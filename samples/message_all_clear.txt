@@ -1,0 +1,4 @@
+**LaneWatch · Daily lane health · 2026-10-17**
+🟢 All 12 lanes within normal range.
+First-attempt success **88.2%** (baseline 91.3%) · On-time **91.5%** (baseline 95.4%)
+**Watchlist:** BKK outbound: weekend median 10.2h vs weekday 5.4h

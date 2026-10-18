@@ -1,0 +1,38 @@
+**LaneWatch · Daily lane health · 2026-10-17**
+First-attempt success **88.2%** (baseline 91.3%) · On-time **91.5%** (baseline 95.4%) · 6/12 lanes, 1 hub(s) flagged
+
+> 6 of 12 lanes and 1 hub(s) flagged.
+
+🔴 **Khon Kaen Hub processing slowdown**  `KKC` `BKK-KKC` `CBI-KKC` `KKC-BKK`
+> Khon Kaen Hub parcels wait 25.8h instead of 5.8h
+• **What:** Khon Kaen Hub: inbound median 25.8h (usual 5.8h); outbound median 23.1h (usual 6.7h).
+• **Likely cause:** Hub-level processing delay; rules cannot determine why. (confidence: medium)
+• **Action:** Check staffing, sorter capacity and backlog at KKC today.
+• **Track:** KKC median processing time back under 10h
+
+🔴 **BKK-CNX: first attempt success**  `BKK-CNX`
+> BKK-CNX: First-attempt success 72.9% vs 85.2% baseline
+• **What:** First-attempt success 72.9% vs 85.2% baseline.
+• **Likely cause:** Rise in address\_issue failures. Hidden by re-attempts. (confidence: low)
+• **Action:** Review BKK-CNX with the CNX regional team.
+• **Track:** BKK-CNX first-attempt success \>= 85%
+
+🟠 **BKK-HDY: first attempt success**  `BKK-HDY`
+> BKK-HDY: First-attempt success 76.6% vs 89.3% baseline
+• **What:** First-attempt success 76.6% vs 89.3% baseline.
+• **Likely cause:** Rise in customer\_not\_available failures. Hidden by re-attempts. (confidence: low)
+• **Action:** Review BKK-HDY with the HDY regional team.
+• **Track:** BKK-HDY first-attempt success \>= 85%
+
+🟠 **CBI-HDY: first attempt success**  `CBI-HDY`
+> CBI-HDY: First-attempt success 75% vs 88.6% baseline
+• **What:** First-attempt success 75% vs 88.6% baseline.
+• **Likely cause:** Rise in customer\_not\_available failures. Hidden by re-attempts. (confidence: low)
+• **Action:** Review CBI-HDY with the HDY regional team.
+• **Track:** CBI-HDY first-attempt success \>= 85%
+
+**Watchlist:** BKK outbound: weekend median 10.2h vs weekday 5.4h (recurring)
+
+🇹🇭 พบเส้นทางผิดปกติ 6 จาก 12 เส้นทาง และฮับผิดปกติ 1 แห่ง (สรุปด้วยกฎอัตโนมัติ)
+
+_⚠️ AI summary not used (Numbers not in source data: 4.4; Unknown lanes: BKK-XYZ; Flagged but not explained: CBI-HDY). Showing rule-based summary._

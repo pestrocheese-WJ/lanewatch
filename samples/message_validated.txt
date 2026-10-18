@@ -1,0 +1,31 @@
+**LaneWatch · Daily lane health · 2026-10-17**
+First-attempt success **88.2%** (baseline 91.3%) · On-time **91.5%** (baseline 95.4%) · 6/12 lanes, 1 hub(s) flagged
+
+> Khon Kaen Hub processing has slowed sharply and is now the main driver of SLA misses on 3 lanes; separately, BKK-CNX and the Hat Yai lanes are losing first attempts.
+
+🔴 **Khon Kaen Hub processing slowdown**  `KKC` `BKK-KKC` `CBI-KKC` `KKC-BKK`
+> Khon Kaen hub parcels wait 25.8h instead of 5.8h, so 3 lanes deliver late
+• **What:** Median inbound processing at KKC was 25.8h vs a usual 5.8h for this weekday, and outbound was 23.1h vs 6.7h. On-time delivery fell to 72.5% on BKK-KKC and 65.6% on CBI-KKC.
+• **Likely cause:** Time is being lost inside the hub, not on the road: linehaul is unchanged (6.1h vs 6.0h on BKK-KKC) and first-attempt success on these lanes is normal. The inbound median has risen every day for 10 days, which points to a capacity or backlog problem that is building. (confidence: high)
+• **Action:** Call the KKC hub lead today: check sorter uptime, shift staffing and backlog size since the slowdown started, and divert or add a night shift until the inbound median is back under target.
+• **Track:** KKC inbound median processing time back under 10h for 3 consecutive days
+
+🔴 **BKK-CNX first attempts failing on address issues, hidden by re-attempts**  `BKK-CNX`
+> BKK-CNX first deliveries fail more (72.9% vs 85.2% success), mostly wrong addresses
+• **What:** First-attempt success fell to 72.9% vs 85.2% baseline (dropped 12.3pp), and attempts per parcel rose to 1.29 from 1.15. Final delivered rate is still 100.0%, so a delivered-rate dashboard would show nothing wrong.
+• **Likely cause:** address\_issue now makes up 71.4% of first-attempt failures vs 45.6% normally, across both morning and afternoon slots. Hub and linehaul times are normal, so the problem is likely in address data or courier routing for this lane, not in the network. (confidence: medium)
+• **Action:** Pull yesterday's 30 address\_issue parcels and check whether they share a sender, district or recent address-format change; review with the CNX last-mile team.
+• **Track:** BKK-CNX first-attempt success at or above 85.0%, and address\_issue share back under 45.6%
+
+🟠 **Hat Yai afternoon delivery failures**  `BKK-HDY` `CBI-HDY`
+> Hat Yai afternoon deliveries fail more (38.0% vs 13.5%): customers not home
+• **What:** First-attempt success fell to 76.6% on BKK-HDY (dropped 12.7pp) and 75.0% on CBI-HDY (dropped 13.6pp). On-time delivery is unaffected because re-attempts succeed.
+• **Likely cause:** Failures are concentrated in the afternoon 12-17 slot (38.0% fail vs 13.5% normally on BKK-HDY) and almost all are customer\_not\_available, so customers are likely not home at the time couriers arrive in Hat Yai. (confidence: medium)
+• **Action:** Ask the HDY team whether afternoon routes changed recently; test moving part of the afternoon wave to the evening slot or sending a pre-delivery SMS.
+• **Track:** BKK-HDY afternoon first-attempt fail rate back under 13.5% for 5 days
+
+**Watchlist:** BKK outbound processing is slower on weekends (median 10.2h vs 5.4h on weekdays); this is recurring, not new.
+
+🇹🇭 ฮับขอนแก่นใช้เวลาประมวลผลพัสดุขาเข้าเฉลี่ย 25.8 ชม. (ปกติ 5.8 ชม.) ทำให้ส่งตรงเวลาของเส้นทาง BKK-KKC ลดเหลือ 72.5% และ CBI-KKC เหลือ 65.6% ส่วนเส้นทาง BKK-CNX ส่งสำเร็จครั้งแรกลดเหลือ 72.9% จากปัญหาที่อยู่ และเส้นทางหาดใหญ่ส่งไม่สำเร็จช่วงบ่ายสูงขึ้นเพราะลูกค้าไม่อยู่
+
+_AI summary validated: 81 numbers checked against source data._

@@ -1,0 +1,38 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: lane
+      POSTGRES_PASSWORD: lane
+      POSTGRES_DB: lanewatch
+      TZ: Asia/Bangkok
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data:/data:ro                              # generated CSVs
+      - ./sql:/sql:ro                                # all SQL files
+      - ./docker/initdb:/docker-entrypoint-initdb.d:ro   # runs once on first start
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U lane -d lanewatch"]
+      interval: 5s
+      retries: 10
+
+  n8n:
+    image: n8nio/n8n:latest
+    ports:
+      - "5678:5678"
+    environment:
+      GENERIC_TIMEZONE: Asia/Bangkok
+      TZ: Asia/Bangkok
+      N8N_SECURE_COOKIE: "false"                    # local http only
+    volumes:
+      - n8n_data:/home/node/.n8n
+      - ./n8n:/workflows:ro                          # so you can import from inside the container
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:
+  n8n_data:

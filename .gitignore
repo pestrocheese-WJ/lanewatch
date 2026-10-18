@@ -1,0 +1,5 @@
+data/*.csv
+APPLICATION_NOTES.md
+__pycache__/
+.env
+n8n/paste_*.js

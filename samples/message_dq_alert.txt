@@ -1,0 +1,7 @@
+**LaneWatch · 🚨 Data-quality gate FAILED · 2026-10-17**
+No performance summary was sent, because it would be built on bad data.
+• **volume_vs_same_weekday**: observed `0.48`, expected ratio >= 0.70
+• **duplicate_attempts**: observed `150`, expected 0 duplicated (parcel_id, attempt_no)
+• **null_keys**: observed `40`, expected 0 parcels missing parcel_id / hubs / lane
+_Passed: freshness, unknown_lanes, timeline_order_
+Next step: check the upstream feed, reload, then re-run the workflow manually.

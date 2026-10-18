@@ -1,0 +1,53 @@
+{
+  "name": "LaneWatch · Error alert",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "9c33be2e-30f7-53fb-a070-12977b9b2abd",
+      "name": "When LaneWatch fails",
+      "type": "n8n-nodes-base.errorTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "PASTE_YOUR_DISCORD_WEBHOOK_URL",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ content: '🚨 **LaneWatch pipeline failed**\\nNode: `' + $json.execution.lastNodeExecuted + '`\\nError: ' + (($json.execution.error || {}).message || 'unknown') + '\\nExecution: ' + $json.execution.url, allowed_mentions: { parse: [] } }) }}",
+        "options": {}
+      },
+      "id": "ac4a0ea2-dfeb-5afe-af08-e85dd478b9b3",
+      "name": "Alert on Discord",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        240,
+        0
+      ]
+    }
+  ],
+  "connections": {
+    "When LaneWatch fails": {
+      "main": [
+        [
+          {
+            "node": "Alert on Discord",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1",
+    "timezone": "Asia/Bangkok"
+  },
+  "pinData": {},
+  "active": false
+}

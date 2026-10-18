@@ -1,0 +1,71 @@
+{
+  "headline": "Khon Kaen Hub processing has slowed sharply and is now the main driver of SLA misses on 3 lanes; separately, BKK-CNX and the Hat Yai lanes are losing first attempts.",
+  "issues": [
+    {
+      "title": "Khon Kaen Hub processing slowdown",
+      "one_liner": "Khon Kaen hub parcels wait 25.8h instead of 5.8h, so 3 lanes deliver late",
+      "scope": "hub",
+      "affected": [
+        "KKC",
+        "BKK-KKC",
+        "CBI-KKC",
+        "KKC-BKK"
+      ],
+      "severity": "high",
+      "what_happened": "Median inbound processing at KKC was 25.8h vs a usual 5.8h for this weekday, and outbound was 23.1h vs 6.7h. On-time delivery fell to 72.5% on BKK-KKC and 65.6% on CBI-KKC.",
+      "likely_cause": "Time is being lost inside the hub, not on the road: linehaul is unchanged (6.1h vs 6.0h on BKK-KKC) and first-attempt success on these lanes is normal. The inbound median has risen every day for 10 days, which points to a capacity or backlog problem that is building.",
+      "evidence": [
+        "KKC inbound median 25.8h vs 5.8h same-weekday baseline; P90 37.9h vs 8.8h",
+        "BKK-KKC on-time 72.5% vs 93.4% baseline (dropped 21.0pp)",
+        "CBI-KKC on-time 65.6% vs 92.1% (dropped 26.5pp); KKC-BKK on-time 82.7% vs 95.0%",
+        "Linehaul BKK-KKC 6.1h vs 6.0h baseline: no road delay"
+      ],
+      "confidence": "high",
+      "suggested_action": "Call the KKC hub lead today: check sorter uptime, shift staffing and backlog size since the slowdown started, and divert or add a night shift until the inbound median is back under target.",
+      "control_metric": "KKC inbound median processing time back under 10h for 3 consecutive days"
+    },
+    {
+      "title": "BKK-CNX first attempts failing on address issues, hidden by re-attempts",
+      "one_liner": "BKK-CNX first deliveries fail more (72.9% vs 85.2% success), mostly wrong addresses",
+      "scope": "lane",
+      "affected": [
+        "BKK-CNX"
+      ],
+      "severity": "high",
+      "what_happened": "First-attempt success fell to 72.9% vs 85.2% baseline (dropped 12.3pp), and attempts per parcel rose to 1.29 from 1.15. Final delivered rate is still 100.0%, so a delivered-rate dashboard would show nothing wrong.",
+      "likely_cause": "address_issue now makes up 71.4% of first-attempt failures vs 45.6% normally, across both morning and afternoon slots. Hub and linehaul times are normal, so the problem is likely in address data or courier routing for this lane, not in the network.",
+      "evidence": [
+        "address_issue 71.4% of failures vs 45.6% baseline (30 parcels yesterday)",
+        "Morning fail rate 27.6% vs 14.8%; afternoon 30.9% vs 14.7%",
+        "Attempts per parcel 1.29 vs 1.15, on-time 84.3% vs 89.8%"
+      ],
+      "confidence": "medium",
+      "suggested_action": "Pull yesterday's 30 address_issue parcels and check whether they share a sender, district or recent address-format change; review with the CNX last-mile team.",
+      "control_metric": "BKK-CNX first-attempt success at or above 85.0%, and address_issue share back under 45.6%"
+    },
+    {
+      "title": "Hat Yai afternoon delivery failures",
+      "one_liner": "Hat Yai afternoon deliveries fail more (38.0% vs 13.5%): customers not home",
+      "scope": "lane",
+      "affected": [
+        "BKK-HDY",
+        "CBI-HDY"
+      ],
+      "severity": "medium",
+      "what_happened": "First-attempt success fell to 76.6% on BKK-HDY (dropped 12.7pp) and 75.0% on CBI-HDY (dropped 13.6pp). On-time delivery is unaffected because re-attempts succeed.",
+      "likely_cause": "Failures are concentrated in the afternoon 12-17 slot (38.0% fail vs 13.5% normally on BKK-HDY) and almost all are customer_not_available, so customers are likely not home at the time couriers arrive in Hat Yai.",
+      "evidence": [
+        "BKK-HDY afternoon fail rate 38.0% vs 13.5%; morning 8.8% vs 7.0%",
+        "customer_not_available is 89.2% of BKK-HDY failures vs 63.5% baseline",
+        "CBI-HDY afternoon fail rate 31.0% vs 13.9%"
+      ],
+      "confidence": "medium",
+      "suggested_action": "Ask the HDY team whether afternoon routes changed recently; test moving part of the afternoon wave to the evening slot or sending a pre-delivery SMS.",
+      "control_metric": "BKK-HDY afternoon first-attempt fail rate back under 13.5% for 5 days"
+    }
+  ],
+  "watchlist": [
+    "BKK outbound processing is slower on weekends (median 10.2h vs 5.4h on weekdays); this is recurring, not new."
+  ],
+  "summary_th": "ฮับขอนแก่นใช้เวลาประมวลผลพัสดุขาเข้าเฉลี่ย 25.8 ชม. (ปกติ 5.8 ชม.) ทำให้ส่งตรงเวลาของเส้นทาง BKK-KKC ลดเหลือ 72.5% และ CBI-KKC เหลือ 65.6% ส่วนเส้นทาง BKK-CNX ส่งสำเร็จครั้งแรกลดเหลือ 72.9% จากปัญหาที่อยู่ และเส้นทางหาดใหญ่ส่งไม่สำเร็จช่วงบ่ายสูงขึ้นเพราะลูกค้าไม่อยู่"
+}
